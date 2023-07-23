@@ -1,0 +1,47 @@
+<%- include('partials/header') %>
+
+<header>
+  <nav>
+    <div class="logo">
+      <a href="/home">Radiance</a>
+    </div>
+    <ul class="navbar">
+      <li><a href="/home">Feed</a></li>
+      <li><a href="/profile">Edit Profile</a></li>
+      <li><a href="/adminPanel">Admin Panel</a></li>
+      <li><a href="/">Logout</a></li>
+    </ul>
+  </nav>
+</header>
+<div class="admin-panel">
+  <form action="/updateAccess" method="POST">
+  <table>
+    <thead>
+      <tr>
+        <th>Members</th>
+        <th>Create</th>
+        <th>Read</th>
+        <th>Delete</th>
+        <th>Admin Access</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% users.forEach(user => { %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><input type="checkbox" name="create-<%= user._id %>" <% if (user.create) { %>checked<% } %>></td>
+          <td><input type="checkbox" name="read-<%= user._id %>" <% if (user.read) { %>checked<% } %>></td>
+          <td><input type="checkbox" name="delete-<%= user._id %>" <% if (user.delete) { %>checked<% } %>></td>
+          <td><input type="checkbox" name="adminAccess-<%= user._id %>" <% if (user.adminAccess) { %>checked<% } %>></td>
+          <input type="hidden" name="userId[]" value="<%= user._id %>">
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  <button type="submit" class="button-adminPanel">Save Changes</button>
+</form>
+
+</div>
+
+
+<%- include('partials/footer') %>

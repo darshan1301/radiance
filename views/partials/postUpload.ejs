@@ -1,0 +1,12 @@
+<div class="postform">
+  <form id="postForm" action="/upload" method="POST" enctype="multipart/form-data">
+    <div class="upload-section">
+      <label for="mediaInput" class="upload-label">
+        Upload Media (Image)
+      </label>
+      <input type="file" accept="image/*, video/*" id="mediaInput" name="imageFile"/>
+    </div>
+    <textarea id="captionInput" placeholder="Enter your caption..." name="caption"></textarea>
+    <button type="submit">Post</button>
+  </form>
+</div>
