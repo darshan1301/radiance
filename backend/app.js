@@ -98,7 +98,7 @@ app.get("/logout", (req, res) => {
 
 app.get("/home" , authenticateToken, async (req, res) => {
   try {
-    console.log("home route has been hit.")
+    // console.log("home route has been hit.")
     const posts = await Post.find({}); 
 
     const formattedPosts = posts.map((post) => ({
@@ -120,7 +120,7 @@ app.get("/adminPanel" , authenticateToken, async (req, res) => {
     if (!user || !user.adminAccess) {
       return res.status(405).json({ message: "User doesn't have adminAccess." });
     }
-    console.log("adminPanel has been hit.");
+    //console.log("adminPanel has been hit.");
     const users = await User.find({});
     res.json({ users });
   } catch (error) {
@@ -211,7 +211,7 @@ app.post("/upload",  authenticateToken, upload.single("imageFile"), async (req, 
       }
 
       if (req.file) {
-        console.log("File uploaded:", req.file);
+        //console.log("File uploaded:", req.file);
         const newPost = new Post({
           filename: req.file.filename,
           filepath: req.file.path,
@@ -268,8 +268,8 @@ app.post("/updateAccess",  authenticateToken, async (req, res) => {
   try {
     const bulkWriteOperations = userUpdates.map((update) => ({
       updateOne: {
-        filter: { _id: update._id }, // Use the appropriate identifier for your users
-        update: { $set: update }, // Update the entire user object with new data
+        filter: { _id: update._id }, 
+        update: { $set: update }, 
       },
     }));
 

@@ -6,7 +6,6 @@ import Home from "./components/pages/Home";
 import Login from "./components/pages/Login";
 import Register from "./components/pages/Register";
 import AdminPanel from "./components/pages/AdminPanel";
-import Footer from "./components/shared/Footer";
 import { AuthProvider } from "./components/shared/AuthContext";
 
 function App() {

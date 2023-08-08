@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-// Define the admin access schema
+
 const adminAccessSchema = new mongoose.Schema({
   adminCode: {
     type: String,
@@ -10,7 +10,6 @@ const adminAccessSchema = new mongoose.Schema({
 
 });
 
-// Define the regular user schema
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -47,8 +46,6 @@ const userSchema = new mongoose.Schema({
   admin: adminAccessSchema,
 });
 
-// Define the user model for regular users
 export const User = mongoose.model('User', userSchema);
 
-// Define the admin model for admin users
 export const Admin = User.discriminator('Admin', adminAccessSchema);

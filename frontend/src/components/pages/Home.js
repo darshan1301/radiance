@@ -5,6 +5,7 @@ import Post from "../shared/Post";
 import { useAuth } from "../shared/AuthContext";
 import Cookies from 'js-cookie';
 import { useNavigate } from "react-router-dom";
+import Footer from "../shared/Footer";
 
 
 function Home() {
@@ -71,7 +72,7 @@ function Home() {
         const newData = await response.json();
         console.log(newData);
         console.log(posts);
-        setPosts([...posts, newData.post]); // Update posts with new data
+        setPosts([...posts, newData.post]); 
       } else {
         console.error("File upload failed:", response.statusText);
         window.alert("You are not allowed to make post.");
@@ -97,6 +98,7 @@ function Home() {
           />
         ))}
       </div>
+      <Footer/>
     </React.Fragment>
   );
 }

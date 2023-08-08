@@ -3,6 +3,7 @@ import React from "react";
 import { useAuth } from "../shared/AuthContext";
 import Navbar from "../shared/Navbar";
 import { useNavigate } from "react-router-dom";
+import Footer from "../shared/Footer";
 
 export default function AdminPanel(props) {
   const { jwtToken } = useAuth();
@@ -57,8 +58,7 @@ export default function AdminPanel(props) {
         window.location.reload();
         console.log("Access permissions updated successfully.");
       } else {
-        // Handle error (optional)
-        console.error("Failed to update access permissions.");
+        window.alert("Failed to update access permissions.")
       }
     } catch (error) {
       console.error("Error:", error);
@@ -152,6 +152,7 @@ export default function AdminPanel(props) {
           </button>
         </form>
       </div>
+      <Footer/>
     </React.Fragment>
   );
 }
