@@ -1,3 +1,7 @@
 # Radience
 
-A brief description of your project.
+Technologies used:
+1)Nodejs
+2)Reactjs
+3)MongoDB
+4)Expressjs
