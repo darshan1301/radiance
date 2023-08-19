@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
 import Cookies from 'js-cookie';
 import { useAuth } from "../shared/AuthContext";
@@ -13,7 +13,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5000/login", {
+      const response = await fetch("http://localhost:5000/user/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

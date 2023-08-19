@@ -26,7 +26,7 @@ function Home() {
     console.log(Cookies.get('jwt'));
     if (jwtToken) {
       try {
-        const response = await fetch("http://localhost:5000/home", {
+        const response = await fetch("http://localhost:5000/post", {
           method: "GET",
           headers: headers,
         });
@@ -42,7 +42,7 @@ function Home() {
 
   const Delete = async (postId) => {
     try {
-      const response = await fetch(`http://localhost:5000/delete/${postId}`, {
+      const response = await fetch(`http://localhost:5000/post/delete/${postId}`, {
         method: "POST",
         headers: headers,
       });
@@ -62,7 +62,7 @@ function Home() {
 
   const Upload = async (formInputs) => {
     try {
-      const response = await fetch("http://localhost:5000/upload", {
+      const response = await fetch("http://localhost:5000/post/upload", {
         method: "POST",
         headers: headers,
         body: formInputs,

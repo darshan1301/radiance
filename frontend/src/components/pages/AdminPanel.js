@@ -21,7 +21,7 @@ export default function AdminPanel(props) {
   const getUsers = async () => {
     if (jwtToken) {
       try {
-        const response = await fetch("http://localhost:5000/adminPanel", {
+        const response = await fetch("http://localhost:5000/user/adminPanel", {
           method: "GET",
           headers: headers,
         });
@@ -45,7 +45,7 @@ export default function AdminPanel(props) {
     console.log("updated data", JSON.stringify(users));
 
     try {
-      const response = await fetch("http://localhost:5000/updateAccess", {
+      const response = await fetch("http://localhost:5000/user/updateAccess", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

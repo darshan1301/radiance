@@ -1,8 +1,7 @@
 import jwt from 'jsonwebtoken';
 import cookieParser from "cookie-parser";
 
-
-export const authenticateToken = (req, res, next) => {
+const authenticateToken = (req, res, next) => {
   let token;
   const authHeader = req.headers.authorization;
   if (authHeader && authHeader.startsWith('Bearer ')) {
@@ -31,3 +30,5 @@ export const authenticateToken = (req, res, next) => {
     next();
   });
 };
+
+export default authenticateToken;
